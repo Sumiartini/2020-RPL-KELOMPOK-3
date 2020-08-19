@@ -16,7 +16,6 @@ class CheckRole
    public function handle($request, Closure $next)
     {
         $roles = $this->CekRoute($request->route());
-        
         if($request->user()->hasRole($roles) || !$roles)
         {
             return $next($request);

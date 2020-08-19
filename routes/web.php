@@ -20,35 +20,20 @@ Route::get('/','PageController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-
-
-Route::group(['middleware' => ['web', 'auth', 'roles']],function(){
-
+Route::group(['middleware' => ['web', 'auth']],function(){
+//ini routes untuk teacher
 	Route::get('/dashboard' ,'AdminController@index');
 	
 	Route::get('/dashboard/generate-absen','AdminController@generateAbsen');
 	Route::get('/dashboard/attendance-list' ,'AdminController@attendanceList');
 	Route::get('/dashboard/create', 'AdminController@create' );
 
-	
-
-});
-Auth::routes();
-Route::get('/index', 'StudentController@index')->name('index');
-
-Route::group(['middleware' => ['CheckRole:teacher']], function () {
-		Route::get('/', function(){
-			return ('halooo');
-		});
-
-Route::get('/dashboard-student','StudentController@index');
-
+//ini routes untuk student
+	Route::get('/dashboard-student','StudentController@index');
 });
 
 
-
-Auth::routes();
-Route::get('/index', 'AdminController@index')->name('index');
+// Route::get('/index', 'AdminController@index')->name('index');
 
 
 
