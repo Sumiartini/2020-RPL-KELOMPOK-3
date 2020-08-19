@@ -62,7 +62,7 @@
                          @else
 
                             @if  ( Auth::user()->role_id == 1 )
-                              <a href="/dashboard">Home</a> 
+                              <a href="/teachers">Home</a> 
                             @elseif ( Auth::user()->role_id == 2 )
                               <a href="/students">Home</a> 
                             @endif

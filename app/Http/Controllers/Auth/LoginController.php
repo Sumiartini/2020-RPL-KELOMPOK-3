@@ -32,10 +32,10 @@ class LoginController extends Controller
     protected function redirectTo(){
         // dd(Auth::user());
         if (Auth::user()->role_id == 1) {
-            return '/dashboard';
+            return '/teachers';
         } else if (Auth::user()->role_id == 2) {
             // dd('ini student');
-            return '/dashboard-student';
+            return '/students';
         } else{
             dd('gak jelas rolenya');
         }

@@ -2,18 +2,18 @@
 <html lang="en">
 
 <!-- Mirrored from codervent.com/rocker/color-version/pages-blank-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Nov 2019 12:20:59 GMT -->
-@include ('layouts.siswa.head')
+@include ('layouts.students.head')
 <body>
 
 <!-- Start wrapper-->
-@include ('layouts.siswa.sidebar')
+@include ('layouts.students.sidebar')
 
 <!--Start topbar header-->
-@include ('layouts.siswa.header')
+@include ('layouts.students.header')
 <!--End topbar header-->
 
 <div class="clearfix"></div>
-	@include ('layouts.siswa.sidebar')
+	@include ('layouts.students.sidebar')
   <div class="content-wrapper">
     <div class="container-fluid">
 
@@ -39,7 +39,7 @@
 
 @include('sweetalert::alert')
   <!-- Bootstrap core JavaScript-->
- @include ('layouts.siswa.js')</body>
+ @include ('layouts.students.js')</body>
 
 <!-- Mirrored from codervent.com/rocker/color-version/pages-blank-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Nov 2019 12:20:59 GMT -->
 </html>

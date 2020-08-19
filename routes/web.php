@@ -15,39 +15,22 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/','PageController@index');
-//Route::post('/','PageController@show');
+Route::get('/attendanceList','PageController@attendanceList');
 
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' => ['web', 'auth']],function(){
+
 //ini routes untuk teacher
-	Route::get('/dashboard' ,'AdminController@index');
-	
-	Route::get('/dashboard/generate-absen','AdminController@generateAbsen');
-	Route::get('/dashboard/attendance-list' ,'AdminController@attendanceList');
-	Route::get('/dashboard/create', 'AdminController@create' );
+	Route::get('/teachers','TeacherController@index');
+	Route::get('/teachers/{id}','TeacherController@show');
+	Route::get('/teachers/{id}/edit','TeacherController@edit');
+	Route::post('/teachers/{id}','TeacherController@update');
+	Route::get('/teachers/create','TeacherController@create' );
+	Route::delete('/teachers/destroy','TeacherController@destroy' );
 
 //ini routes untuk student
-	Route::get('/dashboard-student','StudentController@index');
+	Route::get('/students','StudentController@index');
+
 });
-
-
-// Route::get('/index', 'AdminController@index')->name('index');
-
-
-
-//Route::get('/daftar-hadir', 'SiswaController@daftar_hadir');
-//Route::get('/edit-siswa/{id}', function (){ return 'coba halaman'; });
-
-
-//Route::get('/student/crate','TeacherController@create');
-//Route::post('/student/crate','TeacherController@store');
-
-//Route::get('/daftar','TeacherController@index');
-//Route::PACTH('/student','TeacherController@destroy');
-
-//Route::get('/student/{id}/edit', 'TeacherController@edit');
-//Route::put('/student/{id}/edit', 'TeacherController@update');
 
 

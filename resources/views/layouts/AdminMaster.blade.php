@@ -2,18 +2,18 @@
 <html lang="en">
 
 <!-- Mirrored from codervent.com/rocker/color-version/pages-blank-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Nov 2019 12:20:59 GMT -->
-@include ('layouts.admin.head')
+@include ('layouts.teachers.head')
 <body>
 
 <!-- Start wrapper-->
-@include ('layouts.admin.sidebar')
+@include ('layouts.teachers.sidebar')
 
 <!--Start topbar header-->
-@include ('layouts.admin.header')
+@include ('layouts.teachers.header')
 <!--End topbar header-->
 
 <div class="clearfix"></div>
-	@include ('layouts.admin.sidebar')
+	@include ('layouts.teachers.sidebar')
   <div class="content-wrapper">
     <div class="container-fluid">
 
@@ -39,7 +39,7 @@
 
 @include('sweetalert::alert')
   <!-- Bootstrap core JavaScript-->
- @include ('layouts.admin.js')</body>
+ @include ('layouts.teachers.js')</body>
 
 <!-- Mirrored from codervent.com/rocker/color-version/pages-blank-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Nov 2019 12:20:59 GMT -->
 </html>
