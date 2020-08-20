@@ -14,73 +14,38 @@ class TeacherController extends Controller
         $this->middleware('DisablePreventBack');//tambahkan DisablePreventBack di kernel.php
     }
 
-
     public function index()
     {
-         return view('pages.teachers.index');
+        
+        return view ('pages.teachers.index');
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
-        //
+        //dd('halooo');
+        return view ('pages.teachers.create');
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+  
     public function store(Request $request)
     {
-        //
+        return redirect ('/teachers');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
     public function show(Teacher $teacher)
     {
-        //
+        return view ('pages.teachers.show');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Teacher $teacher)
+   public function edit()
     {
-        //
+        return view ('pages.teachers.edit');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, Teacher $teacher)
     {
-        //
+        return redirect ('/teacher/{id}');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Teacher $teacher)
     {
         //

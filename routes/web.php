@@ -14,19 +14,19 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 
-Route::get('/','PageController@index');
-Route::get('/attendanceList','PageController@attendanceList');
+Route::get('/','AttendanceListController@index');
+Route::get('/attendanceList','AttendanceListController@attendanceList');
 
 
 Route::group(['middleware' => ['web', 'auth']],function(){
 
 //ini routes untuk teacher
 	Route::get('/teachers','TeacherController@index');
+	Route::get('/teachers/create','TeacherController@create');
 	Route::get('/teachers/{id}','TeacherController@show');
 	Route::get('/teachers/{id}/edit','TeacherController@edit');
 	Route::post('/teachers/{id}','TeacherController@update');
-	Route::get('/teachers/create','TeacherController@create' );
-	Route::delete('/teachers/destroy','TeacherController@destroy' );
+	Route::delete('/teachers/destroy','TeacherController@destroy');
 
 //ini routes untuk student
 	Route::get('/students','StudentController@index');

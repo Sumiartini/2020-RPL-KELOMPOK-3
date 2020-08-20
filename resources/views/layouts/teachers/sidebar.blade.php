@@ -4,6 +4,9 @@
     height: 40px;
     border-radius: 50%;
   }
+    .btn-circle {
+      border-radius: 100%;
+  }
 </style>
 
 <div id="wrapper">
@@ -23,9 +26,8 @@
           <i class="fa fa-cog"></i> <span>Home</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
         <ul class="sidebar-submenu">
-          <li><a href="{{URL::to('Students')}}"><i class="fa fa-circle-o"></i>Student Management</a></li>
-          <li><a href="{{URL::to('Students')}}"><i class="fa fa-circle-o"></i>Attendance List</a></li>
-          <li><a href="{{URL::to('Student')}}"><i class="fa fa-circle-o"></i>Report</a></li>
+          <li><a href="{{URL::to('/attendanceList')}}"><i class="fa fa-circle-o"></i>Student Management</a></li>
+          <li><a href="{{URL::to('/teachers')}}"><i class="fa fa-circle-o"></i>Attendance List</a></li>
         </ul>
       </li>
       
@@ -33,7 +35,7 @@
       <li>
         <form method="post" action="{{Route('logout')}}">
         @csrf
-           <button type="submit" class="btn btn-sm btn-danger btn-block waves-effect waves-light icon-power mr-2">Logout</button>
+           <button type="submit" class="btn btn-md btn-danger waves-effect btn-circle waves-light icon-logout mr-2"></button>
       </form>
       </li>
    </div>

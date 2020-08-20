@@ -56,7 +56,8 @@
                           </div>
                           <div class="form-group">
                            <div class="position-relative has-icon-left">
-                              <label for="exampleInputEmailId" class="sr-only">Email ID</label>
+                              <label for="exampleInputEmailId" class="sr-only">Email
+                              </label>
                               <input name="email" type="text" id="exampleInputEmailId" class="form-control" placeholder="Email ID">
                               <div class="form-control-position">
                                   <i class="icon-envelope-open"></i>
@@ -117,7 +118,7 @@
 <!-- Mirrored from codervent.com/rocker/color-version/authentication-signup2.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Nov 2019 12:20:55 GMT -->
 </html>
 
-
+<!-- 
 
 @extends('layouts.app')
 
@@ -196,3 +197,4 @@
     </div>
 </div>
 @endsection
+ -->

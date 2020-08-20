@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAttendaceListsTable extends Migration
+class CreateAttendanceListsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -24,6 +24,7 @@ class CreateAttendaceListsTable extends Migration
         });
     }
 
+
     /**
      * Reverse the migrations.
      *
@@ -31,6 +32,6 @@ class CreateAttendaceListsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attendace_lists');
+        Schema::dropIfExists('attendance_lists');
     }
 }
