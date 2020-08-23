@@ -1,11 +1,13 @@
+<!--Start topbar header-->
 <header class="topbar-nav">
  <nav class="navbar navbar-expand fixed-top gradient-scooter">
   <ul class="navbar-nav mr-auto align-items-center">
     <li class="nav-item">
-      <a class="nav-link toggle-menu" href="javascript:void();">
-       <i class="icon-menu menu-icon"></i>
+      <!-- <a class="nav-link" href="{{URL::to('/teachers')}}">
+       <i class="fa fa-arrow-left"></i> -->
      </a>
     </li>
   </ul>
-</nav>
+ </nav>
 </header>
+

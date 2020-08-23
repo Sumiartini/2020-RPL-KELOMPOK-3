@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <!-- Mirrored from codervent.com/rocker/color-version/pages-blank-page.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 15 Nov 2019 12:20:59 GMT -->
 @include ('layouts.students.head')
 <body>
-
+<div id="wrapper">
 <!-- Start wrapper-->
 @include ('layouts.students.sidebar')
 
@@ -13,7 +14,7 @@
 <!--End topbar header-->
 
 <div class="clearfix"></div>
-	@include ('layouts.students.sidebar')
+
   <div class="content-wrapper">
     <div class="container-fluid">
 

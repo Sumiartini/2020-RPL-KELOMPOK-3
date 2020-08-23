@@ -6,7 +6,7 @@
   <meta name="author" content=""/>
   <title>Students</title>
   <!--favicon-->
-  <link rel="icon" href="{{URL::to('assets/images/favicon.ico')}}" type="image/x-icon">
+  <link rel="icon" href="{{URL::to('assets/images/mahaputra.JFIF')}}" type="image/x-icon">
   <!-- simplebar CSS-->
   <link href="{{URL::to('assets/plugins/simplebar/css/simplebar.css')}}" rel="stylesheet"/>
   <!-- Bootstrap core CSS-->

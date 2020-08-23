@@ -11,8 +11,12 @@ class AttendanceListController extends Controller
 {
     public function index()
     {
-    
-        // $nis         = $request->input('nis');
+     	return view('pages.index');
+    }
+
+    public function attendanceList(Request $request)
+    {
+        // $nis        = $request->input('nis');
         // $count      = Student::whereNis($nis)->count();
         // $Student    = Student::whereNis($nis)->first();
 
@@ -20,20 +24,20 @@ class AttendanceListController extends Controller
         //     $data = new AttendanceList();
         //     $data->user_id = $Student->id;
         //     $data->save();
-        //     return redirect ('/.')->withSuccess('selamat data anda berhasil');
+        //     return view ('attendanceList');
         // } else {
-        //     return 'nisn tidak ada';
-        // }//adminController
-     	return view('pages.index');
-    }
+        //     return "halo"; }
+      return view('pages.attendanceLists.attendanceList');      
+    }  
 
-    public function attendanceList()
-     {
-       
+    public function AbsentInput()
+    {
+        return view ('pages.attendanceLists.AbsentInput');
+    }
     // 	$data ['absen'] = Absen::join('students' , 'students.id_student' , '=' , 'attendance_lists.id_student')
     //     ->get();
-    return view('pages.teachers.attendanceList');
-     }
+    //
+     
 
 
     //   public function generateAbsen()

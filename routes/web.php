@@ -16,12 +16,14 @@ Auth::routes();
 
 Route::get('/','AttendanceListController@index');
 Route::get('/attendanceList','AttendanceListController@attendanceList');
+Route::get('/AbsentInput','AttendanceListController@AbsentInput');
 
 
 Route::group(['middleware' => ['web', 'auth']],function(){
 
 //ini routes untuk teacher
 	Route::get('/teachers','TeacherController@index');
+	Route::get('/teachers/listofStudents','TeacherController@listofStudents');
 	Route::get('/teachers/create','TeacherController@create');
 	Route::get('/teachers/{id}','TeacherController@show');
 	Route::get('/teachers/{id}/edit','TeacherController@edit');
@@ -30,6 +32,8 @@ Route::group(['middleware' => ['web', 'auth']],function(){
 
 //ini routes untuk student
 	Route::get('/students','StudentController@index');
+	Route::get('/students/listofStudents','StudentController@listofStudents');
+
 
 });
 

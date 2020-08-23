@@ -8,7 +8,6 @@
       border-radius: 100%;
   }
 </style>
-
 <div id="wrapper">
  
   <!--Start sidebar-wrapper-->
@@ -22,23 +21,15 @@
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header"></li>
       <li>
-        <a href="index.html" class="waves-effect">
-          <i class="fa fa-cog"></i> <span>Home</span> <i class="fa fa-angle-left pull-right"></i>
-        </a>
-        <ul class="sidebar-submenu">
-          <li><a href="{{URL::to('/attendanceList')}}"><i class="fa fa-circle-o"></i>Student Management</a></li>
-          <li><a href="{{URL::to('/teachers')}}"><i class="fa fa-circle-o"></i>Attendance List</a></li>
-        </ul>
+        <a href="{{ route('logout') }}" onclick="event.preventDefault();
+         document.getElementById('logout-form').submit();"><i class="icon-logout icons"></i>  Logout</a>
+         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+        </form>
       </li>
-      
-      
-      <li>
-        <form method="post" action="{{Route('logout')}}">
-        @csrf
-           <button type="submit" class="btn btn-md btn-danger waves-effect btn-circle waves-light icon-logout mr-2"></button>
-      </form>
-      </li>
+    
+    </ul>
+   
    </div>
 
-
-   <!--End sidebar-wrapper-->
+   

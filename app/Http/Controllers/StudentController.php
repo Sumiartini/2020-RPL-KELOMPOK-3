@@ -20,8 +20,8 @@ class StudentController extends Controller
         return view ('pages.students.index');
     }
 
-    public function show(Student $student)
+    public function listofStudents()
     {
-        //
+        return view ('pages.students.listofStudents');
     }
 }

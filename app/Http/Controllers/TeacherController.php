@@ -19,6 +19,11 @@ class TeacherController extends Controller
         
         return view ('pages.teachers.index');
     }
+
+    public function listofStudents()
+    {
+        return view ('pages.teachers.listofStudents');
+    }
    
     public function create()
     {
@@ -29,11 +34,6 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
         return redirect ('/teachers');
-    }
-
-    public function show(Teacher $teacher)
-    {
-        return view ('pages.teachers.show');
     }
 
    public function edit()
