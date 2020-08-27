@@ -13,17 +13,21 @@
                         <th>No</th>
                         <th>Nis</th>
                         <th>Nama</th>
-                        <th>Keterangan</th>
+                        <th>Kelas</th>
+                        <th>Kehadiran</th>
                     </tr>
                 </thead>
+                @foreach($data as $a)
                 <tbody>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{$a->id}}</td>
+                        <td>{{$a->nis}}</td>
+                        <td>{{$a->name}}</td>
+                        <td>{{$a->name_class}}</td>
+                        <td>{{$a->presence}}</td>
                     </tr>
                 </tbody>
+                @endforeach
             </table>
           
       @endsection

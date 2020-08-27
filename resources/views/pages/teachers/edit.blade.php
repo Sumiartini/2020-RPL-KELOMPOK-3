@@ -6,38 +6,67 @@
          <div class="card">
 			     <div class="card-body">
 				   <div class="card-title">
-				    <a href="{{URL::to('/teachers/listofStudents')}}" class="fa fa-arrow-left" style="color: grey;"></a><a class="container">Edit Siswa</a>
+				    <a href="{{URL::to('/teachers/listofStudents')}}" class="fa fa-arrow-left" style="color: grey;"></a><a class="container">Input Siswa</a>
 					</div>
 				   <hr>
-				    <form>
-					 <div class="form-group row">
-					  <label for="input-10" class="col-sm-2 col-form-label">Nis</label>
-					  <div class="col-sm-10">
-						<input type="text" class="form-control form-control" id="input-10" value="1819.10.089">
-					  </div>
-					</div>
+				    <form action="/teachers/postEdit" method="post">
+				    	@csrf
+							@foreach($data as $student)
+						<input type="hidden" name="id"  value="{{$student->id}}">
+						<input type="hidden" name="user_id"  value="{{$student->user_id}}">
+						<input type="hidden" name="email"    value="{{$student->email}}">
+						<input type="hidden" name="password" value="{{$student->password}}">
 					<div class="form-group row">
 					  <label for="input-11" class="col-sm-2 col-form-label">Nama</label>
 					  <div class="col-sm-10">
-						<input type="text" class="form-control form-control" id="input-11" value="sumiartini">
+						<input type="text" name="name" class="form-control form-control" value="{{$student->name}}" id="input-11" placeholder="Enter Name">
 					  </div>
 					</div>
 					<div class="form-group row">
-					  <label for="input-11" class="col-sm-2 col-form-label">Jenis Kelamin</label>
-					  <div class="col-sm-10">
-						<input type="text" class="form-control form-control" id="input-11" value="Perempuan">
+					  <label for="input-12" class="col-sm-2 col-form-label">Jenis Kelamin</label>
+					  <div class="col-sm-30">
+						<div class="form-check form-check-inline">
+					  <div class="form-check">
+						  <input class="form-check-input" type="radio" name="gender" value="Male" id="exampleRadios1" value="option1" checked>
+						  <label class="form-check-label" for="exampleRadios1">
+							Laki-laki
+						  </label>
+						</div>
+						<div class="form-check">
+						  <input class="form-check-input" type="radio" name="gender" value="Female" id="exampleRadios2" value="option2">
+						  <label class="form-check-label" for="exampleRadios2">
+							Perempuan
+						  </label>
+						</div>
+				  </div>
 					  </div>
+					</div>  	
+					  	<div class="form-group row">
+						  <label for="basic-select" class="col-sm-2 col-form-label">Kelas</label>
+				  			<div class="col-sm-10">
+								<select class="form-control" name="class_id" id="basic-select">
+								@if ($class->count())
+		                          @foreach($class as $lists)
+		                          <option value="{{$lists->id}}" {{$id_class == $lists->id ? 'selected="selected"' : ''}}>{{$lists->name_class}}</option>
+		                          @endforeach
+		                        @endif
+                        		</select>
+						    </div>
+						</div>
+			                  <div class="dropdown-menu">
+			                    <a href="javaScript:void();" class="dropdown-item">Action</a>
+			                    <a href="javaScript:void();" class="dropdown-item">Another action</a>
+			                    <a href="javaScript:void();" class="dropdown-item">Something else here</a>
+			                    <div class="dropdown-divider"></div>
+			                    <a href="javaScript:void();" class="dropdown-item">Separated link</a>
+			                  </div>
+				  		</div> 
 					</div>
-					<div class="form-group row">
-					  <label for="input-11" class="col-sm-2 col-form-label">Kelas</label>
-					  <div class="col-sm-10">
-						<input type="text" class="form-control form-control" id="input-11" value="XII RPL2">
-					  </div>
-					</div>
-
+						@endforeach
 		 			<div class="modal-footer">
                       <input type="submit" class="btn btn-success fa fa-check-square-o" data-dismiss="modal" value="simpan">
                     </div>
+                </form>
         </div>
       </div><!--End Row-->
 

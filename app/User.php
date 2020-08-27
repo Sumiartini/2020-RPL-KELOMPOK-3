@@ -67,4 +67,5 @@ class User extends Authenticatable
     {
         return (strtolower($role)==strtolower($this->have_role->nama)) ? true : false;
     }
+    protected $dates = ['deleted_at'];
 }

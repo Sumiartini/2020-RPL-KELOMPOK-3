@@ -28,9 +28,10 @@
           <i class=""></i> <span>List of Student</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
     <ul class="sidebar-submenu">
-          <li><a href="{{URL::to('/teachers/listofStudents')}}"><i class="fa fa-circle-o"></i>XII RPL</a></li>
+          <li><a href="{{URL::to('/teachers/listofStudents')}}"><i class="fa fa-circle-o"></i>XII RPL1</a></li>
         </ul>
       </li>
+        <li><a href="{{URL::to('/attendanceList')}}"><i class="icon-note"></i>Daftar Kehadiran Siswa</a></li>
 
       <li>
         <a href="{{ route('logout') }}" onclick="event.preventDefault();
