@@ -1,31 +1,24 @@
 @extends('layouts.StudentMaster')
 @section('content')
-Welcome  {{Auth::user()->name}}
+
   <div class="row">
         <div class="col-lg-12">
           <div class="card">
-          <!--   <div><a href="{{URL::to('/students/listofStudents')}}" class="btn btn-primary btn-block">List of Student</a></div> -->
-            <div class="card-header"><a style="font-size: 30px; ">Absensi Siswa</a></div>
+           <div class="card-header"><a style="font-size: 30px; ">Riwayat Absensi</a></div>
             <div class="card-body">
               <div class="table-responsive">
               <table id="default-datatable" class="table table-bordered">
                 <thead>
-                    <tr>
-                       
+                    <tr>          
                         <th>tgl/waktu absen</th>
                         <th>kehadiran</th>
-                      
-                       
                     </tr>
                 </thead>
                 @foreach($attendanceList as $a)
                 <tbody>
                     <tr>
-                       
                         <td>{{$a->created_at}}</td>
-                        <td>{{$a->presence}}</td>
-                        
-                    
+                        <td>{{$a->presence}}</td>   
                     </tr>
                 </tbody>
                 @endforeach

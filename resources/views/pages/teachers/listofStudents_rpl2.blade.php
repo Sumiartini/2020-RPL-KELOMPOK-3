@@ -7,7 +7,7 @@
     @endsection
 
     @section('table')
-              <table id="default-datatable" class="table table-bordered">
+<!--               <table id="default-datatable" class="table table-bordered">
                 <thead>
                     <tr>
                         <th>No</th>
@@ -32,6 +32,6 @@
                     @endforeach
                 </tbody>
             </table>
-          
+ -->          
       @endsection
 @endsection

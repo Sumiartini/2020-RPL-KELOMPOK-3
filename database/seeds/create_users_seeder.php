@@ -23,8 +23,8 @@ class create_users_seeder extends Seeder
          DB::table('users')->insert([
              'role_id' => 2,
              'name' => 'Tegar',
-             'email' => '1819.10.072',
-             'password' => Hash::make('1819.10.072'),
+             'email' => 'tegar@gmail.com',
+             'password' => Hash::make('password'),
     
 
          ]);  
@@ -32,8 +32,8 @@ class create_users_seeder extends Seeder
          DB::table('users')->insert([
              'role_id' => 2,
              'name' => 'Rinaldi',
-             'email' => '1819.10.069',
-             'password' => Hash::make('1819.10.069'),
+             'email' => 'rin@gmail.com',
+             'password' => Hash::make('password'),
     
 
          ]);  
@@ -41,8 +41,17 @@ class create_users_seeder extends Seeder
         DB::table('users')->insert([
             'role_id' => 2,
             'name' => 'Aul',
-            'email' => '1819.10.070',
-            'password' => Hash::make('1819.10.070'),
+            'email' => 'aul@gmail.com',
+            'password' => Hash::make('password'),
+    
+
+        ]);  
+
+        DB::table('users')->insert([
+            'role_id' => 2,
+            'name' => 'jayanti',
+            'email' => 'jaya@gmail.com',
+            'password' => Hash::make('password'),
     
 
         ]);  

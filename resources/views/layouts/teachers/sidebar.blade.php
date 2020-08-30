@@ -20,26 +20,38 @@
    </div>
 
 
+
    <ul class="sidebar-menu do-nicescrol">
       <li class="sidebar-header"></li>
-      
-      <li>
+       
+      <center><p style="color:orange;">{{Auth::user()->name}}</p></center>
+
+
+         <li>
         <a href="#" class="waves-effect">
-          <i class=""></i> <span>List of Student</span> <i class="fa fa-angle-left pull-right"></i>
+          <i class="zmdi zmdi-storage"></i> <span>Daftar Kehadiran</span> <i class="fa fa-angle-left pull-right"></i>
         </a>
-    <ul class="sidebar-submenu">
-          <li><a href="{{URL::to('/teachers/listofStudents')}}"><i class="fa fa-circle-o"></i>XII RPL1</a></li>
-        </ul>
+          <ul class="sidebar-submenu">
+            <li><a href="{{URL::to('/attendanceList')}}"><i class="fa fa-circle-o"></i>Daftar kehadiran Siswa</a></li>
+          </ul>
       </li>
-        <li><a href="{{URL::to('/attendanceList')}}"><i class="icon-note"></i>Daftar Kehadiran Siswa</a></li>
 
       <li>
-        <a href="{{ route('logout') }}" onclick="event.preventDefault();
-         document.getElementById('logout-form').submit();"><i class="icon-logout icons"></i>  Logout</a>
-         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
+        <a href="#" class="waves-effect">
+          <i class="zmdi zmdi-storage"></i> <span>Daftar Kelas</span> <i class="fa fa-angle-left pull-right"></i>
+        </a>
+          <ul class="sidebar-submenu">
+            <li><a href="{{URL::to('/teachers/listofStudents/xiiRpl1')}}"><i class="fa fa-circle-o"></i>XII RPL1</a></li>
+          </ul>
+          <ul class="sidebar-submenu">
+            <li><a href="{{URL::to('/teachers/listofStudents/xiiRpl2')}}"><i class="fa fa-circle-o"></i>XII RPL2</a></li>
+          </ul>
+
+          <ul class="sidebar-submenu">
+            <li><a href="{{URL::to('/teachers/create')}}"><i class="icon-note"></i>tambah siswa</a></li>
+          </ul>
       </li>
+
     
     </ul>
    

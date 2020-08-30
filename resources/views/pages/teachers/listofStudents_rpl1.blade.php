@@ -18,9 +18,8 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($students as $no=>$lists)
+                    @foreach($students as $lists)
                     <tr>
-                        <td>{{$no+1}}</td>
                         <td>{{$lists->nis}}</td>
                         <td>{{$lists->name}}</td>
                         <td>{{$lists->name_class}}</td>

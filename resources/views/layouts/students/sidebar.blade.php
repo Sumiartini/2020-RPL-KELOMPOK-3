@@ -18,17 +18,7 @@
        <h5 class="logo-text">SmkMahaputra</h5>
      </a>
    </div>
-   <ul class="sidebar-menu do-nicescrol">
-      <li class="sidebar-header"></li>
-      <li>
-        <a href="{{ route('logout') }}" onclick="event.preventDefault();
-         document.getElementById('logout-form').submit();"><i class="icon-logout icons"></i>  Logout</a>
-         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-            @csrf
-        </form>
-      </li>
-    
-    </ul>
+ 
    
    </div>
 

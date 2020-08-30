@@ -30,7 +30,7 @@ class TeacherController extends Controller
                         ->get(); 
        
        $date = AttendanceList::whereDate('attendance_lists.created_at',Carbon::today());
-                        //dd($student);
+      
         return view ('pages.teachers.index', compact('student', ['date'=>$date]));
     }
 
@@ -39,8 +39,11 @@ class TeacherController extends Controller
         $students = Student::join('users','users.id' ,'=','students.user_id')
                            ->join('class','class.id','=','students.class_id')
                            ->whereClassId('1')
-                           ->get();
-        return view ('pages.teachers.listofStudents',compact('students'));
+                           ->first();
+        
+            // dd($students);
+
+        return view ('pages.teachers.listofStudents_rpl1',compact('students'));
     }
    
     public function create()
@@ -55,8 +58,8 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
 
-        $nis = $request->input('nis');
-        $name     = $request->input('name');
+        $nis    = $request->input('nis');
+        $name   = $request->input('name');
             if ($nis) 
             {
                     if ($name) {
@@ -72,7 +75,8 @@ class TeacherController extends Controller
                     $student->user_id        = $user->id;
                     $student->class_id       = $request->input('class_id');
                     $student->nis            = $nis;
-                    $student->gender         = $request->input('gender');
+                    $student->gender         = 
+                    $request->input('gender');
                     //dd($student);
                     $student->save();
                     return back()->withSuccess('Data anda sudah berhasil disimpan');
@@ -84,6 +88,8 @@ class TeacherController extends Controller
                 }else{
                      return back()->withInfo('Anda belum mengisi Nis');
                 }   
+        
+
         
 
         

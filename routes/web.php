@@ -26,7 +26,8 @@ Route::group(['middleware' => ['web', 'auth']],function(){
 //ini routes untuk teacher
 	Route::get('/teachers','TeacherController@index');
 	Route::get('/teachers/attendanceList','AttendanceListController@generateAbsen');
-	Route::get('/teachers/listofStudents','TeacherController@listofStudents');
+	Route::get('/teachers/listofStudents/xiiRpl1','TeacherController@listofStudents');
+	Route::get('/teachers/listofStudents/xiiRpl2','TeacherController@listofStudents');
 	Route::get('/teachers/create','TeacherController@create');
 	Route::post('/teachers/create','TeacherController@store');
 	

@@ -17,33 +17,58 @@ class AttendanceListController extends Controller
 
     public function AbsentInput(Request $request)
     {
-         $nis            = $request->input('nis');
-         $Student        = Student::join('users','users.id' ,'=','students.user_id')
-                         ->whereNis($nis)->first();
-                        // cara mengambil data login atau SESSION
-                        //  Auth::user()->id / email / name / 
-                        
-        if ($Student)
-        {
-            
-            $attendance    = AttendanceList::whereUserId($Student->user_id)
-                         ->whereDate('created_at', Carbon::today())
-                         ->wherePresence('0')->first();
+        $nis = $request->nis;
+        $student  = Student::join('users', 'students.user_id', '=', 'users.id')
+        ->whereNis($nis)->first();
 
+        if ($student) {
+            $cek = AttendanceList::whereUserId($student->user_id)
+            ->whereDate('created_at', Carbon::now())->count();
 
-                if ($attendance) 
-                {
-                    $attendance->presence = '1';
-                    $attendance->save();
-                    return back()->withSuccess($Student->name. '  Absen Berhasil');
-                }else
-                {
-                    return back()->withInfo($Student->name. '  Sudah absen');
-                }   
+           
+          
+            if ($cek == '0') {
                 
-        }else{
-            return back()->withInfo('Nis  ' . $nis . '  Tidak ditemukan');
-        }
+                 $input                   = new AttendanceList;
+                 $input->user_id          = $student->user_id;
+                 $input->presence         = '0';
+                 $input->save();
+                 return back()->withSuccess($student->name. '  Absen Berhasil');
+
+    
+            } elseif( $cek == '1') {
+                 return back()->withInfo($student->name. '  Sudah absen');
+            }
+         } else {
+             return back()->withInfo('Nis  ' . $nis . '  Tidak ditemukan');
+         }
+        //  $nis            = $request->input('nis');
+        //  $Student        = Student::join('users','users.id' ,'=','students.user_id')
+        //                  ->whereNis($nis)->first();
+        //                 // cara mengambil data login atau SESSION
+        //                 //  Auth::user()->id / email / name / 
+                        
+        // if ($Student)
+        // {
+            
+        //     $attendance    = AttendanceList::whereUserId($Student->user_id)
+        //                  ->whereDate('created_at', Carbon::today())
+        //                  ->wherePresence('0')->first();
+
+
+        //         if ($attendance) 
+        //         {
+        //             $attendance->presence = '1';
+        //             $attendance->save();
+        //             return back()->withSuccess($Student->name. '  Absen Berhasil');
+        //         }else
+        //         {
+        //             return back()->withInfo($Student->name. '  Sudah absen');
+        //         }   
+                
+        // }else{
+        //     return back()->withInfo('Nis  ' . $nis . '  Tidak ditemukan');
+        // }
          
     }  
 

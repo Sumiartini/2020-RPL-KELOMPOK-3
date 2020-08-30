@@ -1,3 +1,4 @@
+
 @extends('layouts.TeacherMaster')
 @section('content')
 
@@ -45,10 +46,13 @@
 					  	<div class="form-group row">
 						  <label for="basic-select" class="col-sm-2 col-form-label">Kelas</label>
 				  			<div class="col-sm-10">
-								<select class="form-control" name="class_id" id="basic-select">
+								<select class="form-control" name="
+
+								class_id" id="basic-select">
 								@if ($class->count())
 		                          @foreach($class as $lists)
-		                          <option value="{{$lists->id}}" {{$id_class == $lists->id ? 'selected="selected"' : ''}}>{{$lists->name_class}}</option>
+		                          <option value="{{$lists->id}}" {{$id_c
+		                          	lass == $lists->id ? 'selected="selected"' : ''}}>{{$lists->name_class}}</option>
 		                          @endforeach
 		                        @endif
                         		</select>

@@ -7,15 +7,15 @@
 <body>
 <div id="wrapper">
 <!-- Start wrapper-->
-@include ('layouts.students.sidebar')
+
 
 <!--Start topbar header-->
 @include ('layouts.students.header')
 <!--End topbar header-->
-
+<li><li><li>
 <div class="clearfix"></div>
 
-  <div class="content-wrapper">
+ 
     <div class="container-fluid">
 
       <div class="row">
@@ -27,13 +27,13 @@
     </div>
     <!-- End container-fluid-->
     
-   </div><!--End content-wrapper-->
+ <!--End content-wrapper-->
    <!--Start Back To Top Button-->
     <a href="javaScript:void();" class="back-to-top"><i class="fa fa-angle-double-up"></i> </a>
     <!--End Back To Top Button-->
 	
 	<!--Start footer-->
-	
+	</li></li></li>
 	<!--End footer-->
    
   </div><!--End wrapper-->

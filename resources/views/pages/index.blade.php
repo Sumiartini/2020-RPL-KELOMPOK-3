@@ -64,20 +64,19 @@
           </div>
 
       <div class="text-center">
-        <img src="assets/images/mahaputra.JFIF" width="150px">
+        <img src="assets/images/mahaputra.JFIF" width="200px">
       </div>
-      <div class="card-title text-uppercase text-center py-3" style="font-size: 12px">Silahkan Absen Terlebih Dahulu</div>
+      <div class="card-title text-uppercase text-center py-3" style="font-size: 12px"><p style="font-family:roadway;">Silahkan Absen Terlebih Dahulu</p></div>
 
         <form method="post" action="{{URL::to('/AbsentInput') }}">
         @csrf
-        <div class="input-group">
           <label for="exampleInputUsername" class="sr-only">NIS</label>
           <input name="nis" type="text" class="form-control form-control-rounded" placeholder="1819.10.089">
-          <div class="input-group-append">
-            <button type="submit" class="btn btn-primary btn-round waves-effect waves-light">Absen</button>
-          </div>
-        </div>
-       </form>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary btn-round" data-dismiss="modal">Absen</button>
+            </div>
+        </form>
+
        </div>
       </div>
        </div>
