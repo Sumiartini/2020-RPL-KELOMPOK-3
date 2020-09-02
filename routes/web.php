@@ -20,25 +20,32 @@ Route::get('/attendanceList','AttendanceListController@attendanceList');
 Route::post('/AbsentInput','AttendanceListController@AbsentInput');
 Route::get('/AbsentInput','AttendanceListController@AbsentInput');
 
+		
 
 Route::group(['middleware' => ['web', 'auth']],function(){
 
 //ini routes untuk teacher
 	Route::get('/teachers','TeacherController@index');
-	Route::get('/teachers/attendanceList','AttendanceListController@generateAbsen');
-	Route::get('/teachers/listofStudents/xiiRpl1','TeacherController@listofStudents');
-	Route::get('/teachers/listofStudents/xiiRpl2','TeacherController@listofStudents');
+
+	Route::get('/teachers/listofStudents/xiiRpl1','TeacherController@listOfStudents_rpl1');
+	Route::get('/teachers/listofStudents/xiiRpl2','TeacherController@listOfStudents_rpl2');
+	Route::get('/teachers/attendanceList/{id}','AttendanceListController@generateAbsen');
+
+	Route::get('/teachers/{id}/sick','AttendanceListController@generateSick');
+	Route::get('/teachers/{id}/permission','AttendanceListController@generatePermission');
+	Route::get('/teachers/{id}/skip','AttendanceListController@generateSkip');
 	Route::get('/teachers/create','TeacherController@create');
 	Route::post('/teachers/create','TeacherController@store');
 	
 
 	Route::get('/teachers/{id}/edit','TeacherController@edit');
 	Route::post('/teachers/postEdit','TeacherController@update');
+
 	Route::get('/teachers/destroy/{id}','TeacherController@destroy');
 
 //ini routes untuk student
 	Route::get('/students','StudentController@index');
-	Route::get('/students/listofStudents','StudentController@listofStudents');
+	
 
 
 });

@@ -3,11 +3,11 @@
 @section('content')
 
 		 <div class="row">
-        <div class="col-lg-10  mx-auto">
+        <div class="col-lg-12">
          <div class="card">
 			     <div class="card-body">
 				   <div class="card-title">
-				    <a href="{{URL::to('/teachers/listofStudents')}}" class="fa fa-arrow-left" style="color: grey;"></a><a class="container">Input Siswa</a>
+				    <p>	Tambah Siswa </p>
 					</div>
 				   <hr>
 				    <form action="/teachers/create" method="post">
@@ -46,25 +46,15 @@
 					  	<div class="form-group row">
 						  <label for="basic-select" class="col-sm-2 col-form-label">Kelas</label>
 				  			<div class="col-sm-10">
-								<select class="form-control" name="
-
-								class_id" id="basic-select">
+								<select class="form-control" name="class_id" id="basic-select">
 								@if ($class->count())
 		                          @foreach($class as $lists)
-		                          <option value="{{$lists->id}}" {{$id_c
-		                          	lass == $lists->id ? 'selected="selected"' : ''}}>{{$lists->name_class}}</option>
+		                          <option value="{{$lists->id}}" {{$id_class == $lists->id ? 'selected="selected"' : ''}}>{{$lists->name_class}}</option>
 		                          @endforeach
 		                        @endif
                         		</select>
 						    </div>
 						</div>
-			                  <div class="dropdown-menu">
-			                    <a href="javaScript:void();" class="dropdown-item">Action</a>
-			                    <a href="javaScript:void();" class="dropdown-item">Another action</a>
-			                    <a href="javaScript:void();" class="dropdown-item">Something else here</a>
-			                    <div class="dropdown-divider"></div>
-			                    <a href="javaScript:void();" class="dropdown-item">Separated link</a>
-			                  </div>
 				  		</div> 
 					</div>
 					

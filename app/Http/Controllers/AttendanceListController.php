@@ -15,6 +15,20 @@ class AttendanceListController extends Controller
      	return view('pages.index');
     }
 
+    public function attendanceList()
+    {
+        $data = AttendanceList::join('students' , 'attendance_lists.user_id' , '=' , 'students.user_id')
+                ->join('users' , 'attendance_lists.user_id' , '=' , 'users.id')
+                ->join('class' , 'students.class_id' , '=' , 'class.id')
+                ->orderBy('users.name', 'ASC')
+                ->select('attendance_lists.id','students.nis','users.name','class.name_class','attendance_lists.presence')
+                ->get();
+
+    
+        return view ('pages.teachers.attendanceList',compact('data'));
+    }
+        
+
     public function AbsentInput(Request $request)
     {
         $nis = $request->nis;
@@ -25,8 +39,6 @@ class AttendanceListController extends Controller
             $cek = AttendanceList::whereUserId($student->user_id)
             ->whereDate('created_at', Carbon::now())->count();
 
-           
-          
             if ($cek == '0') {
                 
                  $input                   = new AttendanceList;
@@ -72,38 +84,70 @@ class AttendanceListController extends Controller
          
     }  
 
-    
-    public function attendanceList()
-    {
-        $data = AttendanceList::join('students' , 'students.user_id' , '=' , 'attendance_lists.user_id')
-                ->join('users' , 'users.id' , '=' , 'attendance_lists.user_id')
-                ->join('class' , 'class.id' , '=' , 'students.class_id')
-                ->get();
-
-    
-        return view ('pages.attendanceLists.attendanceList',compact('data'));
-    }
-     	
-    
-     
-
-
-       public function generateAbsen()
+    public function generateAbsen($id)
      {    
          $cek_date = AttendanceList::whereDate('created_at', Carbon::today())->first();
+        // dd($cek_date);
          if ($cek_date) {
-             return back()->withToastError('data sudah di import');
-         } else {
             $student = Student::all();
-            foreach ($student as $data) {
-                 $input = new AttendanceList();
-                 $input->user_id          = $data->user_id;
-                 $input->presence         = '0';
+            if ($id) {
+                 $input = AttendanceList::whereId($id)->first();
+                 $input->presence         = '1';
                  $input->save();
-                 
+                 return back()->withSuccess('Import Berhasil');
+            }else{
+                return back()->withInfo('data tidak ada');
+            }
+             
+         } else {
+             return back()->withToastError('data sudah di import');    
              }
-             return back()->withSuccess('Import Berhasil');
-         }
+           
              
     }  
+    public function generateSick($id)
+     {    
+        //dd($id);
+            if ($id) {
+                 $input  = AttendanceList::whereId($id)->first();
+                 $input->presence = '2';
+                 $input->save();
+                 return back()->withSuccess('Dia Sakit');
+            }else{
+                return back()->withInfo('data tidak ada');
+            }
+           
+             
+    }  
+    public function generatePermission($id)
+     {    
+         //dd($id);
+            if ($id) {
+                 $input  = AttendanceList::whereId($id)->first();
+                 $input->presence = '3';
+                 $input->save();
+                 return back()->withSuccess('Dia Izin');
+            }else{
+                return back()->withInfo('data tidak ada');
+            }
+           
+             
+    }  
+    public function generateSkip($id)
+     {    
+         //dd($id);
+            if ($id) {
+                 $input  = AttendanceList::whereId($id)->first();
+                 $input->presence = '4';
+                 $input->save();
+                 return back()->withSuccess('Dia Alfa');
+            }else{
+                return back()->withInfo('data tidak ada');
+            }
+           
+             
+    }  
+    
+
+
 }

@@ -26,8 +26,5 @@ class StudentController extends Controller
         return view ('pages.students.index',compact('attendanceList'));
     }
 
-    public function listofStudents()
-    {
-        return view ('pages.students.listofStudents');
-    }
+   
 }

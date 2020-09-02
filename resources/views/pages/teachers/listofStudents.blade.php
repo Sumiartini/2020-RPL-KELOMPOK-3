@@ -1,12 +1,14 @@
-@extends('layouts.AttendanceListMaster')
+@extends('layouts.TeacherMaster')
 @section('content')
-    @section('title', 'Daftar Siswa')
-   <!-- End Breadcrumb-->
-    @section('div')
-         <a href="{{URL::to('/teachers')}}" class="fa fa-arrow-left" style="color: grey;"></a><a class="container">Daftar Siswa</a>
-    @endsection
 
-    @section('table')
+        
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="card">
+                   <div class="card-header">Daftar Kelas</div>
+                <div class="card-body">
+              <div class="table-responsive">
+   
               <table id="default-datatable" class="table table-bordered">
                 <thead>
                     <tr>
@@ -14,6 +16,8 @@
                         <th>Nis</th>
                         <th>Nama</th>
                         <th>Kelas</th>
+                        <th>Presence</th>
+                        <th>Lainnya</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -24,6 +28,12 @@
                         <td>{{$lists->nis}}</td>
                         <td>{{$lists->name}}</td>
                         <td>{{$lists->name_class}}</td>
+                        <td>{{$lists->presence}}</td>
+                        <td>
+                            <a href="{{URL::to('/teachers/')}}/{{$lists->id}}/sick" class="btn btn-warning btn-sm">Sakit</a>
+                            <a href="{{URL::to('/teachers/')}}/{{$lists->id}}/permission" class="btn btn-info btn-sm">izin</a>
+                            <a href="{{URL::to('/teachers/')}}/{{$lists->id}}/skip" class="btn btn-secondary btn-sm">alpa</a>
+                        </td>
                         <td>
                             <a href="{{URL::to('/teachers/')}}/{{$lists->user_id}}/edit" class="btn btn-success btn-sm">Edit</a>
                             <a href="{{URL::to('/teachers/destroy/')}}/{{$lists->user_id}}" class="btn btn-danger btn-sm">Hapus</a>
@@ -32,6 +42,12 @@
                     @endforeach
                 </tbody>
             </table>
-          
-      @endsection
+
+          </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        
+     
 @endsection

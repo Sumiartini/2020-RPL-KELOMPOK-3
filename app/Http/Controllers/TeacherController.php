@@ -22,28 +22,47 @@ class TeacherController extends Controller
 
     public function index()
     {
-       $student        = Student::join('users','users.id' ,'=','students.user_id')
-                        ->join('attendance_lists','attendance_lists.user_id','=','students.user_id')
-                        ->join('class','class.id','=','students.class_id')
-                        ->wherePresence('1')
-                        
+       $student        = Student::join('users','students.user_id' ,'=','users.id')
+                        ->join('attendance_lists','students.user_id','=','attendance_lists.user_id')
+                        ->join('class', 'students.class_id','=','class.id')
+                        ->wherePresence('0')
+                        ->whereDate('attendance_lists.created_at',Carbon::today())
                         ->get(); 
        
-       $date = AttendanceList::whereDate('attendance_lists.created_at',Carbon::today());
+       
       
-        return view ('pages.teachers.index', compact('student', ['date'=>$date]));
+        return view ('pages.teachers.index', compact('student'));
     }
 
-    public function listofStudents()
+    public function listOfStudents_rpl1()
     {
-        $students = Student::join('users','users.id' ,'=','students.user_id')
-                           ->join('class','class.id','=','students.class_id')
+        $students = Student::join('users','students.user_id' ,'=','users.id')
+                           ->join('attendance_lists','students.user_id','=','attendance_lists.user_id')
+                           ->join('class','students.class_id','=','class.id')
+                           ->orderBy('users.name', 'ASC')
                            ->whereClassId('1')
-                           ->first();
+                           ->select('attendance_lists.id','students.nis','users.name','class.name_class','attendance_lists.presence','students.user_id')
+                           ->get();
         
             // dd($students);
 
-        return view ('pages.teachers.listofStudents_rpl1',compact('students'));
+        return view ('pages.teachers.listofStudents',compact('students'));
+    }
+
+    public function listOfStudents_rpl2()
+    {
+        $students = Student::join('users','students.user_id' ,'=','users.id')
+                           ->join('attendance_lists','students.user_id','=','attendance_lists.user_id')
+                           ->join('class','students.class_id','=','class.id')
+                           ->orderBy('users.name', 'ASC')   
+                           ->whereClassId('2')
+                           ->select('attendance_lists.id','students.nis','users.name','class.name_class','attendance_lists.presence','students.user_id')
+                           ->get();
+        
+            // dd($students);
+
+
+        return view ('pages.teachers.listofStudents',compact('students'));
     }
    
     public function create()
@@ -55,6 +74,8 @@ class TeacherController extends Controller
         return view ('pages.teachers.create', compact('class' , 'id_class'));
     }
   
+
+
     public function store(Request $request)
     {
 
@@ -97,8 +118,8 @@ class TeacherController extends Controller
 
    public function edit($id)
     {
-        $data = Student::join('class','class.id','=','students.class_id')
-                       ->join('users','users.id' ,'=','students.user_id')
+        $data = Student::join('class','students.class_id','=','class.id')
+                       ->join('users','students.user_id' ,'=','users.id')
                        ->where('students.user_id','=',$id)
                        ->get();
          $class    = Classes::all();
