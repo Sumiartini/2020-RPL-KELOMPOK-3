@@ -16,7 +16,7 @@
                         <th>Nis</th>
                         <th>Nama</th>
                         <th>Kelas</th>
-                        <th>Presence</th>
+                        <th>Kehadiran</th>
                         <th>Lainnya</th>
                         <th>Aksi</th>
                     </tr>

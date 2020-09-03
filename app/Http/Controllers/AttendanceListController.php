@@ -92,7 +92,7 @@ class AttendanceListController extends Controller
             $student = Student::all();
             if ($id) {
                  $input = AttendanceList::whereId($id)->first();
-                 $input->presence         = '1';
+                 $input->presence         = '0';
                  $input->save();
                  return back()->withSuccess('Import Berhasil');
             }else{
@@ -100,7 +100,7 @@ class AttendanceListController extends Controller
             }
              
          } else {
-             return back()->withToastError('data sudah di import');    
+             return back()->withToastError('gagal');    
              }
            
              

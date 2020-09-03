@@ -17,7 +17,7 @@
                 @foreach($attendanceList as $a)
                 <tbody>
                     <tr>
-                        <td>{{date('d M Y', strtotime($a->created_at))}}</td>
+                        <td>{{date('d/M/Y H:i:s', strtotime($a->created_at))}}</td>
                         <td>{{$a->presence}}</td>   
                     </tr>
                 </tbody>

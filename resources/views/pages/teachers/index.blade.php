@@ -27,7 +27,7 @@
                         <td>{{$s->name}}</td>
                         <td>{{$s->name_class}}</td>
 
-                        <td>{{date('d M Y',strtotime($s->created_at))}}</td>
+                        <td>{{date('d/M/Y H:i:s',strtotime($s->created_at))}}</td>
                      
                     </tr>
                   @endforeach

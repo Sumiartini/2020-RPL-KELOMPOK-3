@@ -12,10 +12,15 @@ class create_class_seeder extends Seeder
     public function run()
     {
         DB::table('class')->insert([
-        	'name_class' => 'XII RPL 1',
+        	'name_class' => 'XII RPL 1',   
         ]);
+
         DB::table('class')->insert([
-            'name_class' => 'XII RPL 2',
+            'name_class' => 'XII RPL2',
+        ]);
+        
+        DB::table('class')->insert([
+            'name_class' => 'XII MM',
         ]);
         
     }

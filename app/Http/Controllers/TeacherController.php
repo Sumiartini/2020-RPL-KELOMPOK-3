@@ -26,7 +26,7 @@ class TeacherController extends Controller
                         ->join('attendance_lists','students.user_id','=','attendance_lists.user_id')
                         ->join('class', 'students.class_id','=','class.id')
                         ->wherePresence('0')
-                        ->whereDate('attendance_lists.created_at',Carbon::today())
+                        ->select('attendance_lists.id','users.name','class.name_class','attendance_lists.created_at')
                         ->get(); 
        
        
@@ -152,9 +152,9 @@ class TeacherController extends Controller
                 $student->gender         = $request->input('gender');
                 $student->class_id       = $request->input('class_id');
                 $student->save();
-                return redirect('/teachers/listofStudents')->withSuccess('Selamat Data Anda berhasil dirubah');
+                return back()->withSuccess('Data Anda berhasil dirubah');
             }else{
-                return back()->withToastError('Data belum diisi'); 
+                return back()->withToastError('Data tidak bisa dikosongkan'); 
             }
         
         
