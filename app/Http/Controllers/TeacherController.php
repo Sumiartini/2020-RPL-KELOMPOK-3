@@ -36,13 +36,11 @@ class TeacherController extends Controller
 
     public function listOfStudents_rpl1()
     {
-        $students = Student::join('users','students.user_id' ,'=','users.id')
-                           ->join('attendance_lists','students.user_id','=','attendance_lists.user_id')
-                           ->join('class','students.class_id','=','class.id')
-                           ->orderBy('users.name', 'ASC')
-                           ->whereClassId('1')
-                           ->select('attendance_lists.id','students.nis','users.name','class.name_class','attendance_lists.presence','students.user_id')
-                           ->get();
+        $students = Student::join('class','students.class_id','=','class.id')
+                        ->join('users','students.user_id' ,'=','users.id')
+                        ->orderBy('users.name', 'ASC')
+                        ->where('students.class_id','=','1')
+                        ->get();
         
             // dd($students);
 
@@ -51,13 +49,24 @@ class TeacherController extends Controller
 
     public function listOfStudents_rpl2()
     {
-        $students = Student::join('users','students.user_id' ,'=','users.id')
-                           ->join('attendance_lists','students.user_id','=','attendance_lists.user_id')
-                           ->join('class','students.class_id','=','class.id')
-                           ->orderBy('users.name', 'ASC')   
-                           ->whereClassId('2')
-                           ->select('attendance_lists.id','students.nis','users.name','class.name_class','attendance_lists.presence','students.user_id')
-                           ->get();
+       $students = Student::join('class','students.class_id','=','class.id')
+                        ->join('users','students.user_id' ,'=','users.id')
+                        ->orderBy('users.name', 'ASC')
+                        ->where('class_id','=','2')
+                        ->get(); 
+            // dd($students);
+
+
+        return view ('pages.teachers.listofStudents',compact('students'));
+    }
+   
+    public function listOfStudents_mm()
+    {
+       $students = Student::join('class','students.class_id','=','class.id')
+                        ->join('users','students.user_id' ,'=','users.id')
+                        ->orderBy('users.name', 'ASC')
+                        ->where('students.class_id','=','3')
+                        ->get();
         
             // dd($students);
 
@@ -79,15 +88,19 @@ class TeacherController extends Controller
     public function store(Request $request)
     {
 
-        $nis    = $request->input('nis');
-        $name   = $request->input('name');
+        $nis        = $request->input('nis');
+        $name       = $request->input('name');
+        $email      = $request->input('email');
+        $password   = $request->input('password');
+        
+        
             if ($nis) 
             {
                     if ($name) {
                     $user = new User();
                     $user->role_id  = '2';
                     $user->name     = $request->input('name');
-                    $user->email    = $nis;
+                    $user->email    = $email;
                     $user->password = Hash::make($nis);
                     //dd($user);
                     $user->save();

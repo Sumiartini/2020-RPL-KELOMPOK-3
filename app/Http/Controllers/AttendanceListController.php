@@ -92,15 +92,15 @@ class AttendanceListController extends Controller
             $student = Student::all();
             if ($id) {
                  $input = AttendanceList::whereId($id)->first();
-                 $input->presence         = '0';
+                 $input->presence         = '1';
                  $input->save();
-                 return back()->withSuccess('Import Berhasil');
+                 return back()->withSuccess('Dia Hadir');
             }else{
                 return back()->withInfo('data tidak ada');
             }
              
          } else {
-             return back()->withToastError('gagal');    
+             return back()->withToastError('data tidak ada');    
              }
            
              
@@ -140,7 +140,7 @@ class AttendanceListController extends Controller
                  $input  = AttendanceList::whereId($id)->first();
                  $input->presence = '4';
                  $input->save();
-                 return back()->withSuccess('Dia Alfa');
+                 return back()->withSuccess('Dia bolos');
             }else{
                 return back()->withInfo('data tidak ada');
             }

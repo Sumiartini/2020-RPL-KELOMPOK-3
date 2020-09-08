@@ -18,7 +18,7 @@
                         <th>Nama</th>
                         <th>Kelas</th>
                         <th>Kehadiran</th>
-                        <th>aksi</th>
+                        <th>Keterangan</th>
                     </tr>
                 </thead>
                 @foreach($data as $a=>$e)
@@ -32,7 +32,10 @@
                    
                         @if($e->presence == 0) 
                         <td>
-                            <a href="{{URL::to('teachers/attendanceList/')}}/{{$e->id}}" class="btn btm-sm btn-success">aktifkan absen</a>
+                            <a href="{{URL::to('teachers/attendanceList/')}}/{{$e->id}}" class="btn btn-success btn-sm">Hadir</a>
+                            <a href="{{URL::to('/teachers/')}}/{{$e->id}}/sick" class="btn btn-warning btn-sm">Sakit</a>
+                            <a href="{{URL::to('/teachers/')}}/{{$e->id}}/permission" class="btn btn-info btn-sm">izin</a>
+                            <a href="{{URL::to('/teachers/')}}/{{$e->id}}/skip" class="btn btn-secondary btn-sm">alpa</a>
                         </td>
                         @endif
                     

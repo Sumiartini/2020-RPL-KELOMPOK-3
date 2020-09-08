@@ -5,15 +5,9 @@
             <div class="row">
               <div class="col-lg-12">
                 <div class="card">
-                   <div class="card-header">Daftar Kehadiran Kelas</div>
+                   <div class="card-header">Daftar Kelas</div>
                 <div class="card-body">
               <div class="table-responsive">
-
-        
-            <div>
-                <a href="{{URL::to('/teachers/create')}}" class="btn btn-success btn-md"><i class="icon-note"></i><b>&nbsp;<u>tambah siswa</u></b></a>
-            </div>
-            <br>
    
               <table id="default-datatable" class="table table-bordered">
                 <thead>
@@ -22,6 +16,7 @@
                         <th>Nis</th>
                         <th>Nama</th>
                         <th>Kelas</th>
+                        <th>Kehadiran</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -32,8 +27,9 @@
                         <td>{{$lists->nis}}</td>
                         <td>{{$lists->name}}</td>
                         <td>{{$lists->name_class}}</td>
+                        <td>{{$lists->presence}}</td>
                         <td>
-                            <a href="{{URL::to('/teachers/')}}/{{$lists->user_id}}/edit" class="btn btn-info btn-sm">Edit</a>
+                            <a href="{{URL::to('/teachers/')}}/{{$lists->user_id}}/edit" class="btn btn-success btn-sm">Edit</a>
                             <a href="{{URL::to('/teachers/destroy/')}}/{{$lists->user_id}}" class="btn btn-danger btn-sm">Hapus</a>
                         </td>
                     </tr>

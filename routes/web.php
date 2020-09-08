@@ -28,7 +28,8 @@ Route::group(['middleware' => ['web', 'auth']],function(){
 	Route::get('/teachers','TeacherController@index');
 
 	Route::get('/teachers/listofStudents/xiiRpl1','TeacherController@listOfStudents_rpl1');
-	Route::get('/teachers/listofStudents/xiiRpl2','TeacherController@listOfStudents_rpl2');
+	Route::get('/teachers/listofStudents/xiiRpl2','TeacherController@listOfStudents_rpl2');	
+	Route::get('/teachers/listofStudents/xiiMM','TeacherController@listOfStudents_mm');
 	Route::get('/teachers/attendanceList/{id}','AttendanceListController@generateAbsen');
 
 	Route::get('/teachers/{id}/sick','AttendanceListController@generateSick');
