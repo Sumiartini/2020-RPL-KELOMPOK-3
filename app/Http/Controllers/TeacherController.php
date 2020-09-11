@@ -101,7 +101,7 @@ class TeacherController extends Controller
                     $user->role_id  = '2';
                     $user->name     = $request->input('name');
                     $user->email    = $email;
-                    $user->password = Hash::make($nis);
+                    $user->password = Hash::make($password);
                     //dd($user);
                     $user->save();
 
